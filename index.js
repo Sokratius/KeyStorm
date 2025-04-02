@@ -29,6 +29,8 @@ document.getElementById('game').addEventListener('keyup', event => {
     const isSpace = key === ' ';
     const isBackspace = key === 'Backspace';
     const isFirstLetter = currentLetter === currentWord.firstElementChild;
+    // const isExtra = document.querySelectorAll(".letter.incorrect.extra")[document.querySelectorAll(".letter.incorrect.extra").length - 1];
+
 
     console.log({key, expected});
 
@@ -64,6 +66,9 @@ document.getElementById('game').addEventListener('keyup', event => {
     }
 
     if (isBackspace) {
+        // if (isExtra) {
+        //     currentWord.removeChild(isExtra)
+        // }
         if (currentLetter && isFirstLetter) {
             currentWord.classList.remove('current');
             currentWord.previousElementSibling.classList.add('current');
@@ -83,6 +88,7 @@ document.getElementById('game').addEventListener('keyup', event => {
             currentWord.lastElementChild.classList.add('current');
             currentWord.lastElementChild.classList.remove('incorrect');
             currentWord.lastElementChild.classList.remove('correct');
+
         }
     }
 
